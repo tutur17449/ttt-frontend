@@ -1,0 +1,19 @@
+nav {
+  background-color: #292c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  color: #fff;
+  ul {
+    display: flex;
+    flex-direction: row;
+    li {
+      margin: 0 0.5rem;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}
