@@ -5,23 +5,24 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import NotFound from "./pages/NotFound";
-import Games from "./pages/Games";
 import Game from "./pages/Game";
+import { AuthProvider } from "./hooks/useAuth";
 
 function App() {
   return (
-    <Provider store={store}>
-      <Router>
-        <Navbar />
-        <Switch>
-          <Route exact path="/" component={Home} />
-          <Route path="/games" component={Games} />
-          <Route path="/game/:id" component={Game} />
-          <Route component={NotFound} />
-        </Switch>
-        <Footer />
-      </Router>
-    </Provider>
+    <AuthProvider>
+      <Provider store={store}>
+        <Router>
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/game/:id" component={Game} />
+            <Route component={NotFound} />
+          </Switch>
+          <Footer />
+        </Router>
+      </Provider>
+    </AuthProvider>
   );
 }
 
