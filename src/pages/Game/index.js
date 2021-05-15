@@ -1,17 +1,27 @@
 import { useEffect } from "react";
 import withAuth from "../../hoc/withAuth";
-import { useParams } from "react-router";
+import { useHistory, useParams } from "react-router";
 import socket from "../../lib/socket";
 import { useDispatch, useSelector } from "react-redux";
+import { getLoading } from "../../store/api/api.selectors";
 import { getCurrentGame } from "../../store/game/game.selectors";
-import { SET_NEW_PLAYER, REMOVE_PLAYER } from "../../store/game/game.slice";
+import {
+  SET_NEW_PLAYER,
+  REMOVE_PLAYER,
+  fetchInitialGame,
+  RESET_CURRENT_GAME,
+} from "../../store/game/game.slice";
 
 const Game = () => {
   const { id } = useParams();
+  const history = useHistory();
+  const isLoading = useSelector(getLoading("getCurrentGame"));
   const dispatch = useDispatch();
   const game = useSelector(getCurrentGame);
 
   useEffect(() => {
+    dispatch(fetchInitialGame(id));
+
     socket.on("userJoinCurrentGame", (userId) => {
       dispatch(SET_NEW_PLAYER(userId));
     });
@@ -20,12 +30,20 @@ const Game = () => {
       dispatch(REMOVE_PLAYER(userId));
     });
 
+    socket.on("ownerLeaveRoom", () => {
+      dispatch(RESET_CURRENT_GAME());
+      history.push("/");
+    });
+
     return () => {
       socket.emit("userLeaveRoom", id);
       socket.off("userJoinGame");
       socket.off("userLeaveCurrentGame");
+      socket.off("ownerLeaveRoom");
     };
   }, []);
+
+  if (isLoading || !game) return <p>Loading ...</p>;
 
   return (
     <div>
