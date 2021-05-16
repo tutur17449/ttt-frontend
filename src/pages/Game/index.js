@@ -10,17 +10,19 @@ import {
   REMOVE_PLAYER,
   fetchInitialGame,
   RESET_CURRENT_GAME,
+  SET_GAME_BOARD,
 } from "../../store/game/game.slice";
+import GameArea from "../../components/GameArea";
 
 const Game = () => {
   const { id } = useParams();
   const history = useHistory();
   const isLoading = useSelector(getLoading("getCurrentGame"));
   const dispatch = useDispatch();
-  const game = useSelector(getCurrentGame);
+  const room = useSelector(getCurrentGame);
 
   useEffect(() => {
-    dispatch(fetchInitialGame(id));
+    // dispatch(fetchInitialGame(id));
 
     socket.on("userJoinCurrentGame", (userId) => {
       dispatch(SET_NEW_PLAYER(userId));
@@ -35,20 +37,40 @@ const Game = () => {
       history.push("/");
     });
 
+    socket.on("startGame", (game) => {
+      dispatch(SET_GAME_BOARD(game));
+    });
+
+    socket.on("updateGame", (game) => {
+      dispatch(SET_GAME_BOARD(game));
+    });
+
+    socket.on("endGame", (game) => {
+      dispatch(SET_GAME_BOARD(game));
+    });
+
+    socket.on("resetGame", (game) => {
+      dispatch(SET_GAME_BOARD(game));
+    });
+
     return () => {
       socket.emit("userLeaveRoom", id);
       socket.off("userJoinGame");
       socket.off("userLeaveCurrentGame");
       socket.off("ownerLeaveRoom");
+      socket.off("startGame");
+      socket.off("endGame");
+      socket.off("resetGame");
     };
   }, []);
 
-  if (isLoading || !game) return <p>Loading ...</p>;
+  if (isLoading || !room) return <p>Loading ...</p>;
 
   return (
     <div>
-      <p>Game {game.id}</p>
-      <p>Users {game.users.length} / 2</p>
+      <p>Game {room.id}</p>
+      <p>Users {room.users.length} / 2</p>
+      <GameArea />
     </div>
   );
 };

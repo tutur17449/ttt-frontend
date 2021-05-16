@@ -21,9 +21,9 @@ const GamesContainer = () => {
   useEffect(() => {
     dispatch(fetchInitialGames());
 
-    socket.on("userCreateNewGame", (game) => {
+    socket.on("createNewGameConfirmation", (game) => {
       dispatch(SET_NEW_GAME(game));
-      dispatch(SET_CURRENT_GAME(game));
+      dispatch(SET_CURRENT_GAME({ game, symbol: "X" }));
       history.push(`/game/${game.id}`);
     });
 
@@ -35,8 +35,8 @@ const GamesContainer = () => {
       dispatch(DELETE_GAME(gameId));
     });
 
-    socket.on("joinGameSuccess", (game) => {
-      dispatch(SET_CURRENT_GAME(game));
+    socket.on("joinGameConfirmation", (game) => {
+      dispatch(SET_CURRENT_GAME({ game }));
       history.push(`/game/${game.id}`);
     });
 
@@ -49,10 +49,10 @@ const GamesContainer = () => {
     });
 
     return () => {
-      socket.off("userCreateNewGame");
+      socket.off("createNewGameConfirmation");
       socket.off("newGameCreate");
       socket.off("deleteRoom");
-      socket.off("joinGameSuccess");
+      socket.off("joinGameConfirmation");
       socket.off("userJoinGame");
       socket.off("userLeaveGame");
     };

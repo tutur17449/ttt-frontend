@@ -1,0 +1,14 @@
+#playground {
+  display: flex;
+  flex-direction: column;
+  .playground-row {
+    display: flex;
+    flex-direction: row;
+    .playground-cel {
+      text-align: center;
+      border: 1px solid #dadada;
+      height: 40px;
+      width: 40px;
+    }
+  }
+}
