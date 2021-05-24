@@ -1,0 +1,16 @@
+#game-stats {
+  .stats {
+    text-align: center;
+    height: 75px;
+    background-color: grey;
+    padding: 0 0.5rem;
+    border-radius: 3px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    p {
+      margin: 0;
+    }
+  }
+}

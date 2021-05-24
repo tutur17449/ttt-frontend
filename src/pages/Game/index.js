@@ -13,6 +13,7 @@ import {
   SET_GAME_BOARD,
 } from "../../store/game/game.slice";
 import GameArea from "../../components/GameArea";
+import { Container, Row, Col } from "reactstrap";
 
 const Game = () => {
   const { id } = useParams();
@@ -67,11 +68,17 @@ const Game = () => {
   if (isLoading || !room) return <p>Loading ...</p>;
 
   return (
-    <div>
-      <p>Game {room.id}</p>
-      <p>Users {room.users.length} / 2</p>
-      <GameArea />
-    </div>
+    <Container>
+      <Row>
+        <Col xs={12}>
+          <p>Game {room.id}</p>
+          <p>Users {room.users.length} / 2</p>
+        </Col>
+        <Col xs={12}>
+          <GameArea />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

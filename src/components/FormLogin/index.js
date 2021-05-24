@@ -7,6 +7,7 @@ import validateFields from "./formLogin.validator";
 import FormInput from "../FormInput";
 import socket from "../../lib/socket";
 import "./styles.scss";
+import ButtonNeon from "../ButtonNeon";
 
 const FormLogin = () => {
   const { setUser } = useAuth();
@@ -70,7 +71,7 @@ const FormLogin = () => {
       )}
       <Form onSubmit={onSubmit} className="mt-5">
         <FormInput
-          label="Pseudo"
+          label="Your pseudo"
           type="text"
           name="pseudo"
           id="pseudo"
@@ -79,9 +80,7 @@ const FormLogin = () => {
           onChange={onChange}
           error={formError.pseudo}
         />
-        <Button type="submit" className="w-100 mt-5" color="primary">
-          Login
-        </Button>
+        <ButtonNeon type="submit" label="Login" classes="mt-5" />
       </Form>
     </>
   );

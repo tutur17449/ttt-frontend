@@ -60,11 +60,10 @@ const GamesContainer = () => {
 
   return (
     <Col>
-      <div className="d-flex w-100">
-        <h2>Game container</h2>
-      </div>
       <CreateGame />
+      <hr />
       <JoinGame />
+      <hr />
       <GamesList />
     </Col>
   );

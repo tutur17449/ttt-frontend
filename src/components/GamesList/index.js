@@ -16,12 +16,12 @@ const GamesList = () => {
   return (
     <Row>
       <Col xs={12}>
-        <h2>GamesList</h2>
+        <h2 className="mb-4">Public games</h2>
       </Col>
       {isLoading ? (
         <p>Loading ...</p>
       ) : games.length === 0 ? (
-        <p>No data ...</p>
+        <p>Any games now.</p>
       ) : (
         games.map((i) => <GameCard key={i.id} data={i} onClick={joinGame} />)
       )}

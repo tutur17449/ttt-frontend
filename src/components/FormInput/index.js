@@ -1,4 +1,5 @@
 import { FormGroup, Label, Input, FormFeedback } from "reactstrap";
+import "./styles.scss";
 
 const FormInput = ({
   label,
@@ -11,7 +12,7 @@ const FormInput = ({
   error,
 }) => {
   return (
-    <FormGroup>
+    <FormGroup className="form-group-neon">
       <Label for={id}>{label}</Label>
       <Input
         type={type}

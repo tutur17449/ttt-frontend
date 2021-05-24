@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Button, Row, FormGroup, Label, Input } from "reactstrap";
 import socket from "../../lib/socket";
+import "./styles.scss";
 
 const CreateGame = () => {
   const [gameStatus, setGameStatus] = useState("private");
@@ -11,9 +12,12 @@ const CreateGame = () => {
 
   return (
     <Row className="mt-4 mb-4">
-      <div className="d-flex flex-row align-items-center justify-content-between">
+      <h2 className="mb-4">Create new game</h2>
+      <div className="d-flex flex-column flex-sm-row align-items-center justify-content-between">
         <FormGroup className="d-flex flex-row align-items-center">
-          <Label for="status">Choose game status</Label>
+          <Label for="status" className="form-label">
+            Game status
+          </Label>
           <Input
             type="select"
             name="status"
@@ -25,7 +29,7 @@ const CreateGame = () => {
             <option value="public">public</option>
           </Input>
         </FormGroup>
-        <Button color="primary" onClick={onClick}>
+        <Button color="primary" onClick={onClick} className="mt-4 mt-sm-0">
           Create new game
         </Button>
       </div>

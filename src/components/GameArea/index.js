@@ -22,8 +22,7 @@ const GameArea = () => {
   };
 
   return (
-    <div>
-      <h2>Game Area</h2>
+    <>
       <GameStats data={game} />
       <GameInformations data={game} canPlay={canPlay} />
       <GameGrid data={game} userPlay={userPlay} />
@@ -35,7 +34,7 @@ const GameArea = () => {
           </Button>
         </div>
       )}
-    </div>
+    </>
   );
 };
 

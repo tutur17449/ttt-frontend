@@ -1,6 +1,8 @@
+import { Row } from "reactstrap";
+
 const GameInformations = ({ data, canPlay }) => {
   return (
-    <div id="game-informations">
+    <Row className="mt-4 mb-4 text-center">
       {data ? (
         canPlay ? (
           <p>Your turn </p>
@@ -10,7 +12,7 @@ const GameInformations = ({ data, canPlay }) => {
       ) : (
         <p>Waiting other player to start game ...</p>
       )}
-    </div>
+    </Row>
   );
 };
 
