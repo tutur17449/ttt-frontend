@@ -25,7 +25,7 @@ const GameArea = () => {
     <>
       <GameStats data={game} />
       <GameInformations data={game} canPlay={canPlay} />
-      <GameGrid data={game} userPlay={userPlay} />
+      <GameGrid data={game} userPlay={userPlay} symbol={symbol} />
       {game?.endGame && (
         <div>
           <p> {game.winner} win !</p>

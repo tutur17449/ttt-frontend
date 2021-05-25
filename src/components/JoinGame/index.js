@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Row, FormGroup, Label, Input, Button } from "reactstrap";
+import ButtonNeon from "../ButtonNeon";
 
 const JoinGame = () => {
   const [gameId, setGameId] = useState(null);
@@ -23,9 +24,7 @@ const JoinGame = () => {
             onChange={(e) => setGameId(e.target.value)}
           ></Input>
         </FormGroup>
-        <Button color="primary" onClick={onClick} className="mt-4 mt-sm-0">
-          Join game
-        </Button>
+        <ButtonNeon onClick={onClick} label="Join" classes="mt-4 mt-sm-0 p-2" />
       </div>
     </Row>
   );

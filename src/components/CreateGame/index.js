@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Button, Row, FormGroup, Label, Input } from "reactstrap";
+import { Row, FormGroup, Label, Input } from "reactstrap";
 import socket from "../../lib/socket";
+import ButtonNeon from "../ButtonNeon";
 import "./styles.scss";
 
 const CreateGame = () => {
@@ -29,9 +30,11 @@ const CreateGame = () => {
             <option value="public">public</option>
           </Input>
         </FormGroup>
-        <Button color="primary" onClick={onClick} className="mt-4 mt-sm-0">
-          Create new game
-        </Button>
+        <ButtonNeon
+          onClick={onClick}
+          label="Create"
+          classes="mt-4 mt-sm-0 p-2"
+        />
       </div>
     </Row>
   );

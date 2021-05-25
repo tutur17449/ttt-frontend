@@ -1,17 +1,19 @@
-import { Row } from "reactstrap";
+import { Col, Row } from "reactstrap";
 
 const GameInformations = ({ data, canPlay }) => {
   return (
-    <Row className="mt-4 mb-4 text-center">
-      {data ? (
-        canPlay ? (
-          <p>Your turn </p>
+    <Row className="mt-4 mb-4">
+      <Col>
+        {data ? (
+          canPlay ? (
+            <h2 className="text-center">Your turn </h2>
+          ) : (
+            <h2 className="text-center">Current player {data.currentPlayer}</h2>
+          )
         ) : (
-          <p>Current player {data.currentPlayer}</p>
-        )
-      ) : (
-        <p>Waiting other player to start game ...</p>
-      )}
+          <h2 className="text-center">Waiting other player ...</h2>
+        )}
+      </Col>
     </Row>
   );
 };

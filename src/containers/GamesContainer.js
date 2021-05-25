@@ -59,7 +59,7 @@ const GamesContainer = () => {
   }, []);
 
   return (
-    <Col>
+    <Col xs={10} className="m-auto">
       <CreateGame />
       <hr />
       <JoinGame />

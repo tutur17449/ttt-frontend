@@ -80,7 +80,7 @@ const FormLogin = () => {
           onChange={onChange}
           error={formError.pseudo}
         />
-        <ButtonNeon type="submit" label="Login" classes="mt-5" />
+        <ButtonNeon type="submit" label="Login" classes="mt-5 w-100" />
       </Form>
     </>
   );

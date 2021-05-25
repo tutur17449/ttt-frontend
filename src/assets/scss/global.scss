@@ -47,7 +47,8 @@ main {
       $bg-dark-secondary 93.06%
     );
 
-  h1 {
+  h1,
+  h2 {
     width: 100%;
     text-align: center;
     font-style: normal;
@@ -58,6 +59,14 @@ main {
     white-space: nowrap;
     @media (max-width: 768px) {
       font-size: 2.5rem;
+    }
+  }
+
+  h2 {
+    font-size: 2rem;
+    text-align: left;
+    @media (max-width: 768px) {
+      font-size: 1.25rem;
     }
   }
 }

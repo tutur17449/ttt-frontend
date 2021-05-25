@@ -1,3 +1,5 @@
+@import "/src/assets/scss/config.scss";
+
 #playground {
   display: flex;
   flex-direction: column;
@@ -7,19 +9,42 @@
     display: flex;
     flex-direction: row;
     .playground-cel {
-      text-align: center;
-      border: 1px solid #dadada;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       height: 120px;
       width: 120px;
       transition: all 300ms;
       &:hover {
         cursor: pointer;
-        background-color: rgb(190, 190, 190);
       }
       @media (max-width: 768px) {
         height: 80px;
         width: 80px;
       }
+      span {
+        height: inherit;
+        width: inherit;
+      }
     }
+    .playground-cel span.X {
+      background-image: url("../../../assets/images/X.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .playground-cel span.O {
+      background-image: url("../../../assets/images/O.svg");
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+  }
+  .bnlr {
+    border-left: 2px solid $text-white;
+    border-right: 2px solid $text-white;
+  }
+  .bntb {
+    border-top: 2px solid $text-white;
+    border-bottom: 2px solid $text-white;
   }
 }

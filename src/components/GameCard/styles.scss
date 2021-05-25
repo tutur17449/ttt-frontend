@@ -1,5 +1,12 @@
+@import "/src/assets/scss/config.scss";
+
 .game-card {
   min-height: 150px;
-  border: 1px solid grey;
-  border-radius: 3px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 2px solid $color-primary;
+  box-sizing: border-box;
+  box-shadow: 0px 0px 20px 2px $color-primary;
+  border-radius: 10px;
+  color: $text-white;
 }
