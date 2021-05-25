@@ -43,7 +43,7 @@ const FormLogin = () => {
 
   useEffect(() => {
     socket.on("userOnline", (user) => {
-      if (user === formData.pseudo) {
+      if (user.username === formData.pseudo) {
         setUser(user);
       }
     });

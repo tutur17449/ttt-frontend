@@ -2,6 +2,9 @@
 
 nav.desktop-nav {
   display: flex;
+  @media (max-width: 768px) {
+    display: none;
+  }
   ul {
     display: flex;
     flex-direction: row;
@@ -9,7 +12,12 @@ nav.desktop-nav {
       margin: 0 0.5rem;
     }
   }
-  @media (max-width: 768px) {
-    display: none;
+  img {
+    width: 100px;
+    height: 100px;
+    @media (min-width: 768px) and (max-width: 1200px) {
+      width: 75px;
+      height: 75px;
+    }
   }
 }

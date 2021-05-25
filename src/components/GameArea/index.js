@@ -1,16 +1,19 @@
 import { useSelector } from "react-redux";
-import { Button } from "reactstrap";
+import useAuth from "../../hooks/useAuth";
 import socket from "../../lib/socket";
-import { useParams } from "react-router";
-import { getGame, getUserSymbol } from "../../store/game/game.selectors";
+import {
+  getGame,
+  getPlayer2,
+  getUserSymbol,
+} from "../../store/game/game.selectors";
 import GameGrid from "./GameGrid";
-import GameInfos from "./GameInfos";
 import GameStats from "./GameStats";
 import GameTurn from "./GameTurn";
 
 const GameArea = () => {
-  const { id } = useParams();
+  const { user } = useAuth();
   const game = useSelector(getGame);
+  const player2 = useSelector(getPlayer2(user.id));
   const symbol = useSelector(getUserSymbol);
   const canPlay = !game?.endGame && game?.currentPlayer === symbol;
 
@@ -25,20 +28,11 @@ const GameArea = () => {
   };
 
   return (
-    <>
-      <GameStats data={game} symbol={symbol} />
-      <GameTurn data={game} canPlay={canPlay} />
+    <div className="h-100 d-flex flex-column align-items-center justify-content-center">
+      <GameStats data={game} symbol={symbol} player2={player2} />
+      <GameTurn data={game} canPlay={canPlay} playAgain={playAgain} />
       <GameGrid data={game} userPlay={userPlay} symbol={symbol} />
-      {game?.endGame && (
-        <div>
-          <p> {game.winner} win !</p>
-          <Button onClick={playAgain} color="primary">
-            Play again
-          </Button>
-        </div>
-      )}
-      <GameInfos id={id} />
-    </>
+    </div>
   );
 };
 

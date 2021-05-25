@@ -9,3 +9,8 @@ export const getUserSymbol = (state) => {
 export const getGame = (state) => {
   return state.game.currentGame.game;
 };
+
+export const getPlayer2 = (currentUser) => (state) => {
+  const user = state.game.currentGame.users.find((i) => i.id !== currentUser);
+  return user;
+};

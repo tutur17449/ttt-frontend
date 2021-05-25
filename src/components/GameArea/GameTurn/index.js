@@ -1,8 +1,21 @@
 import { Col, Row } from "reactstrap";
+import ButtonNeon from "../../ButtonNeon";
+import "./styles.scss";
 
-const GameTurn = ({ data, canPlay }) => {
+const GameTurn = ({ data, canPlay, playAgain }) => {
+  if (data?.endGame) {
+    return (
+      <Row id="game-turn">
+        <Col className="text-center">
+          <h2 className="text-center"> {data.winner} win !</h2>
+          <ButtonNeon onClick={playAgain} label="Play again" />
+        </Col>
+      </Row>
+    );
+  }
+
   return (
-    <Row className="mt-4 mb-4">
+    <Row id="game-turn">
       <Col>
         {data ? (
           canPlay ? (

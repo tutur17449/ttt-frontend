@@ -11,7 +11,7 @@ const MobileNav = ({ onClick }) => {
   return (
     <nav className={`mobile-nav ${isOpen && "open"}`}>
       <div className="mobile-actions">
-        <Link to="/" onClick={() => setIsOpen(!isOpen)}>
+        <Link to="/" onClick={() => setIsOpen(false)}>
           <img src={Logo} alt="Tic Tac Toe logo" />
         </Link>
         <Drawer isOpen={isOpen} onClick={setIsOpen} />
@@ -20,7 +20,7 @@ const MobileNav = ({ onClick }) => {
         <div className="mobile-nav-content">
           <ul>
             <li>
-              <Link to="/" onClick={() => setIsOpen(!isOpen)}>
+              <Link to="/" onClick={() => setIsOpen(false)}>
                 <ButtonNeon label="Home" />
               </Link>
             </li>

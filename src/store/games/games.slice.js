@@ -37,19 +37,15 @@ export default gamesSlice.reducer;
 
 // Thunks
 export const fetchInitialGames = () => async (dispatch, getState) => {
-  const { games } = getState();
-
-  if (!games.init) {
-    dispatch(SET_LOADING("getInitialGames"));
-    try {
-      const { data } = await httpClient.get(
-        `${process.env.REACT_APP_BACKEND_URL}/api/games`
-      );
-      dispatch(SET_INITIAL_GAMES(data));
-    } catch (err) {
-      console.log(err);
-    } finally {
-      dispatch(SET_COMPLETE("getInitialGames"));
-    }
+  dispatch(SET_LOADING("getInitialGames"));
+  try {
+    const { data } = await httpClient.get(
+      `${process.env.REACT_APP_BACKEND_URL}/api/games`
+    );
+    dispatch(SET_INITIAL_GAMES(data));
+  } catch (err) {
+    console.log(err);
+  } finally {
+    dispatch(SET_COMPLETE("getInitialGames"));
   }
 };

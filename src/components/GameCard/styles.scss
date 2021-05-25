@@ -1,6 +1,7 @@
 @import "/src/assets/scss/config.scss";
 
-.game-card {
+.game-card-content {
+  position: relative;
   min-height: 150px;
   border-radius: 10px;
   background-color: transparent;
@@ -9,4 +10,27 @@
   box-shadow: 0px 0px 20px 2px $color-primary;
   border-radius: 10px;
   color: $text-white;
+  p:first-of-type {
+    font-size: 0.65rem;
+    font-style: italic;
+  }
+  p:nth-of-type(2) {
+    text-align: center;
+  }
+  span {
+    position: absolute;
+    right: 2px;
+    bottom: 2px;
+  }
+}
+
+.game-card {
+  transition: all 300ms;
+  &:hover {
+    .game-card-content {
+      cursor: pointer;
+      background-color: $color-primary;
+      color: $text-dark;
+    }
+  }
 }

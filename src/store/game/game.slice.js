@@ -22,14 +22,16 @@ const gameSlice = createSlice({
       }
     },
     SET_NEW_PLAYER: (state, { payload }) => {
-      const userIndex = state.currentGame.users.findIndex((i) => i === payload);
+      const userIndex = state.currentGame.users.findIndex(
+        (i) => i.id === payload.id
+      );
       if (userIndex === -1) {
         state.currentGame.users.push(payload);
       }
     },
     REMOVE_PLAYER: (state, { payload }) => {
       state.currentGame.users = [
-        ...state.currentGame.users.filter((i) => i !== payload),
+        ...state.currentGame.users.filter((i) => i.id !== payload),
       ];
     },
     RESET_CURRENT_GAME: (state, { payload }) => {

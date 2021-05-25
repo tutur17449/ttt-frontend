@@ -1,11 +1,14 @@
 import { useState } from "react";
 import { Row, FormGroup, Label, Input, Button } from "reactstrap";
+import socket from "../../lib/socket";
 import ButtonNeon from "../ButtonNeon";
 
 const JoinGame = () => {
   const [gameId, setGameId] = useState(null);
 
-  const onClick = () => {};
+  const onClick = () => {
+    socket.emit("joinGame", gameId);
+  };
 
   return (
     <Row className="mt-4 mb-4">

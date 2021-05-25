@@ -7,14 +7,13 @@ const GameCard = ({ data, onClick }) => {
       xs={12}
       sm={6}
       md={4}
-      lg={3}
-      className="p-1"
+      className="p-3 game-card"
       onClick={() => onClick(data.id)}
     >
-      <div className="game-card p-1">
-        <p>Game {data.id}</p>
-        <p>Owner {data.owner}</p>
-        <p>Users : {data.users.length}/ 2</p>
+      <div className="game-card-content p-1">
+        <p>#{data.id}</p>
+        <p>{data.owner.username}</p>
+        <span>{data.users.length}/ 2</span>
       </div>
     </Col>
   );

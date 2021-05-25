@@ -8,12 +8,13 @@ import { getCurrentGame } from "../../store/game/game.selectors";
 import {
   SET_NEW_PLAYER,
   REMOVE_PLAYER,
-  fetchInitialGame,
   RESET_CURRENT_GAME,
   SET_GAME_BOARD,
 } from "../../store/game/game.slice";
 import GameArea from "../../components/GameArea";
 import { Container, Row, Col } from "reactstrap";
+import "./styles.scss";
+import GameInfos from "../../components/GameArea/GameInfos";
 
 const Game = () => {
   const { id } = useParams();
@@ -68,12 +69,13 @@ const Game = () => {
   if (isLoading || !room) return <p>Loading ...</p>;
 
   return (
-    <Container>
+    <Container fluid id="game-container">
       <Row>
         <Col xs={12}>
           <GameArea />
         </Col>
       </Row>
+      <GameInfos id={id} />
     </Container>
   );
 };

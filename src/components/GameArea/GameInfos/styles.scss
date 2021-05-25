@@ -1,5 +1,23 @@
+@import "/src/assets/scss/config.scss";
+
 #game-infos {
-  position: absolute;
+  background-color: $color-primary;
+  position: fixed;
   bottom: 0;
   left: 0;
+  width: 100%;
+  text-align: center;
+  &:hover {
+    cursor: pointer;
+  }
+  p {
+    margin: 0;
+    padding: 0.25rem 2px;
+    color: $text-dark;
+    font-size: 0.75rem;
+    font-style: italic;
+    span {
+      font-weight: bold;
+    }
+  }
 }
