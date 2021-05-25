@@ -71,10 +71,6 @@ const Game = () => {
     <Container>
       <Row>
         <Col xs={12}>
-          <p>Game {room.id}</p>
-          <p>Users {room.users.length} / 2</p>
-        </Col>
-        <Col xs={12}>
           <GameArea />
         </Col>
       </Row>

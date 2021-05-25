@@ -1,0 +1,54 @@
+@import "/src/assets/scss/config.scss";
+
+nav.mobile-nav {
+  display: none;
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
+  div.mobile-actions {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+nav.mobile-nav.open {
+  z-index: 999;
+  background: radial-gradient(
+      50% 50% at 50% 50%,
+      $bg-dark-primary 0%,
+      $bg-dark-primary 40.62%,
+      $bg-dark-secondary 100%
+    ),
+    radial-gradient(
+      50% 50% at 50% 50%,
+      $bg-dark-primary 0%,
+      $bg-dark-secondary 93.06%
+    ),
+    radial-gradient(
+      50% 50% at 50% 50%,
+      $bg-dark-primary 0%,
+      $bg-dark-secondary 93.06%
+    );
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  .mobile-nav-content {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    ul {
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      li {
+        margin: 1rem 0;
+      }
+    }
+  }
+}

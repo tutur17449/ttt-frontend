@@ -13,6 +13,7 @@ function App() {
       <Provider store={store}>
         <Router>
           <main>
+            <Navbar />
             <Switch>
               <Route exact path="/" component={Home} />
               <Route path="/game/:id" component={Game} />

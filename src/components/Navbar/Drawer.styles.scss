@@ -1,0 +1,44 @@
+@import "/src/assets/scss/config.scss";
+
+.drawer {
+  display: none;
+  @media (max-width: 968px) {
+    z-index: 998;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: flex-end;
+    margin-left: 20px;
+
+    .drawer-line {
+      width: 25px;
+      height: 2px;
+      background-color: $color-primary;
+      margin: 3px 2px;
+      transition: all 0.2s;
+    }
+    .drawer-line:first-child {
+      width: 12px;
+    }
+    .drawer-line:last-child {
+      width: 12px;
+    }
+  }
+}
+
+@media (max-width: 968px) {
+  .drawer.open {
+    transform: translateX(6px);
+  }
+  .drawer.open .drawer-line {
+    width: 0px;
+  }
+  .drawer.open .drawer-line:first-child {
+    width: 25px;
+    transform: rotate(45deg) translateY(12px);
+  }
+  .drawer.open .drawer-line:last-child {
+    width: 25px;
+    transform: rotate(-45deg) translateY(-11.5px);
+  }
+}

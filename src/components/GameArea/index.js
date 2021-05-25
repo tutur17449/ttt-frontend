@@ -1,12 +1,15 @@
 import { useSelector } from "react-redux";
 import { Button } from "reactstrap";
 import socket from "../../lib/socket";
+import { useParams } from "react-router";
 import { getGame, getUserSymbol } from "../../store/game/game.selectors";
 import GameGrid from "./GameGrid";
+import GameInfos from "./GameInfos";
 import GameStats from "./GameStats";
-import GameInformations from "./GameInformations";
+import GameTurn from "./GameTurn";
 
 const GameArea = () => {
+  const { id } = useParams();
   const game = useSelector(getGame);
   const symbol = useSelector(getUserSymbol);
   const canPlay = !game?.endGame && game?.currentPlayer === symbol;
@@ -23,8 +26,8 @@ const GameArea = () => {
 
   return (
     <>
-      <GameStats data={game} />
-      <GameInformations data={game} canPlay={canPlay} />
+      <GameStats data={game} symbol={symbol} />
+      <GameTurn data={game} canPlay={canPlay} />
       <GameGrid data={game} userPlay={userPlay} symbol={symbol} />
       {game?.endGame && (
         <div>
@@ -34,6 +37,7 @@ const GameArea = () => {
           </Button>
         </div>
       )}
+      <GameInfos id={id} />
     </>
   );
 };

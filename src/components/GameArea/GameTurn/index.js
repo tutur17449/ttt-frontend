@@ -1,6 +1,6 @@
 import { Col, Row } from "reactstrap";
 
-const GameInformations = ({ data, canPlay }) => {
+const GameTurn = ({ data, canPlay }) => {
   return (
     <Row className="mt-4 mb-4">
       <Col>
@@ -18,4 +18,4 @@ const GameInformations = ({ data, canPlay }) => {
   );
 };
 
-export default GameInformations;
+export default GameTurn;
