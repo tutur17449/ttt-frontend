@@ -7,7 +7,9 @@ const GameTurn = ({ data, canPlay, playAgain }) => {
     return (
       <Row id="game-turn">
         <Col className="text-center">
-          <h2 className="text-center"> {data.winner} win !</h2>
+          <h2 className="text-center">
+            {data?.winner ? `${data.winner} win !` : "Null match"}
+          </h2>
           <ButtonNeon onClick={playAgain} label="Play again" />
         </Col>
       </Row>
