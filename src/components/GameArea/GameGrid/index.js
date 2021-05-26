@@ -2,7 +2,6 @@ import GridCel from "./GridCel";
 import "./styles.scss";
 
 const GameGrid = ({ data, userPlay, symbol }) => {
-  console.log(data);
   return (
     <div id="playground">
       <div className="playground-row">

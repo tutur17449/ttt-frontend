@@ -2,7 +2,7 @@
 
 .game-card-content {
   position: relative;
-  min-height: 150px;
+  min-height: 125px;
   border-radius: 10px;
   background-color: transparent;
   border: 2px solid $color-primary;
@@ -10,12 +10,18 @@
   box-shadow: 0px 0px 20px 2px $color-primary;
   border-radius: 10px;
   color: $text-white;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   p:first-of-type {
     font-size: 0.65rem;
     font-style: italic;
   }
   p:nth-of-type(2) {
+    width: 100%;
     text-align: center;
+    font-weight: bold;
+    margin: 0;
   }
   span {
     position: absolute;

@@ -1,6 +1,21 @@
-.form-group {
-  white-space: nowrap;
-  .form-label {
-    margin: 0 0.75rem 0 0;
+.create-game {
+  .form-group {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    white-space: nowrap;
+    width: auto;
+    @media (max-width: 768px) {
+      width: 100%;
+      input,
+      select {
+        margin: 0 0.75rem 0 0;
+      }
+    }
+    .form-label {
+      white-space: nowrap;
+      margin: 0 0.75rem 0 0;
+    }
   }
 }

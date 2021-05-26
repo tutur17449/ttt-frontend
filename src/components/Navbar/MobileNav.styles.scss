@@ -52,6 +52,11 @@ nav.mobile-nav.open {
       justify-content: center;
       li {
         margin: 1rem 0;
+        animation: fadeIn ease 1s;
+        -webkit-animation: fadeIn ease 1s;
+        -moz-animation: fadeIn ease 1s;
+        -o-animation: fadeIn ease 1s;
+        -ms-animation: fadeIn ease 1s;
       }
     }
   }

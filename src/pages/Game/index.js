@@ -15,6 +15,7 @@ import GameArea from "../../components/GameArea";
 import { Container, Row, Col } from "reactstrap";
 import "./styles.scss";
 import GameInfos from "../../components/GameArea/GameInfos";
+import { motion } from "framer-motion";
 
 const Game = () => {
   const { id } = useParams();
@@ -69,14 +70,20 @@ const Game = () => {
   if (isLoading || !room) return <p>Loading ...</p>;
 
   return (
-    <Container fluid id="game-container">
-      <Row>
-        <Col xs={12}>
-          <GameArea />
-        </Col>
-      </Row>
-      <GameInfos id={id} />
-    </Container>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Container fluid id="game-container">
+        <Row>
+          <Col xs={12}>
+            <GameArea />
+          </Col>
+        </Row>
+        <GameInfos id={id} />
+      </Container>
+    </motion.div>
   );
 };
 

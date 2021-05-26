@@ -13,6 +13,7 @@ import {
   UPDATE_GAME,
 } from "../store/games/games.slice";
 import { SET_CURRENT_GAME } from "../store/game/game.slice";
+import { motion } from "framer-motion";
 
 const GamesContainer = () => {
   const history = useHistory();
@@ -59,13 +60,19 @@ const GamesContainer = () => {
   }, []);
 
   return (
-    <Col xs={10} className="m-auto">
-      <CreateGame />
-      <hr />
-      <JoinGame />
-      <hr />
-      <GamesList />
-    </Col>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
+      <Col xs={10} className="m-auto">
+        <CreateGame />
+        <hr />
+        <JoinGame />
+        <hr />
+        <GamesList />
+      </Col>
+    </motion.div>
   );
 };
 

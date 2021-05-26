@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Row, FormGroup, Label, Input, Button } from "reactstrap";
+import { Row, FormGroup, Label, Input } from "reactstrap";
 import socket from "../../lib/socket";
 import ButtonNeon from "../ButtonNeon";
+import "./styles.scss";
 
 const JoinGame = () => {
   const [gameId, setGameId] = useState(null);
@@ -11,10 +12,10 @@ const JoinGame = () => {
   };
 
   return (
-    <Row className="mt-4 mb-4">
+    <Row className="mt-4 mb-4 join-game">
       <h2 className="mb-4">Join private game</h2>
       <div className="d-flex flex-column flex-sm-row align-items-center justify-content-between">
-        <FormGroup className="d-flex flex-row align-items-center">
+        <FormGroup>
           <Label for="status" className="form-label">
             Game id
           </Label>
